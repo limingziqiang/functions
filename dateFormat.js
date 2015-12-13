@@ -3,7 +3,7 @@
  * @author 未知
  */
 
-Date.prototype.Format = function(formatStr) {
+Date.prototype.format = function(formatStr) {
     var str = formatStr;
     var Week = ['日', '一', '二', '三', '四', '五', '六'];
     str = str.replace(/yyyy|YYYY/, this.getFullYear());
@@ -21,3 +21,24 @@ Date.prototype.Format = function(formatStr) {
     str = str.replace(/s|S/g, this.getSeconds());
     return str
 }
+
+// 或
+Date.prototype.format = function(format){
+    var o = {
+        "M+" : this.getMonth()+1, //month
+        "d+" : this.getDate(),    //day
+        "h+" : this.getHours(),   //hour
+        "m+" : this.getMinutes(), //minute
+        "s+" : this.getSeconds(), //second
+        "q+" : Math.floor((this.getMonth()+3)/3),  //quarter
+        "S" : this.getMilliseconds() //millisecond
+    };
+    if(/(y+)/.test(format)) format=format.replace(RegExp.$1,
+(this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    for(var k in o){
+        if(new RegExp("("+ k +")").test(format))
+            format = format.replace(RegExp.$1,RegExp.$1.length==1 ? o[k] :("00"+ o[k]).substr((""+ o[k]).length));
+    }
+    return format;
+}
+alert(new Date().format("yyyy-MM-dd hh:mm:ss"));
