@@ -8,7 +8,6 @@
  *  scrollToTop();
  */
  
-
  function scrollToTop() {
  	var c = document.documentElement.scrollTop || document.body.scrollTop;
 
