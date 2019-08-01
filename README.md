@@ -17,6 +17,7 @@
 | addFavorite.js                | 加入收藏夹      |
 | setHomepage.js                | 设为首页      |
 | backTop.js                    | 返回顶部的通用方法      |
+| scrollToTop.js                | 返回顶部的通用方法v2      |
 | openWindow.js                 | 打开一个窗体通用方法      |
 | loadStyle.js                  | 加载样式文件      |
 | evalscript.js                 | 返回脚本内容      |
