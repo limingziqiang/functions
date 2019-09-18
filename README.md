@@ -2,6 +2,7 @@
 
 | function                      | description                             |
 |:----------------------------- |:----------------------------------------|
+| isIphonex.js                  | 判断iphonex
 | SaferHTML.js                  | 安全模板
 | cutstr.js                     | 字符串长度截取    |
 | replaceAll.js                 | 替换全部      |
