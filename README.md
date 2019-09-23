@@ -2,6 +2,7 @@
 
 | function                      | description                             |
 |:----------------------------- |:----------------------------------------|
+| isMobileNumber.js             | 判断运营商号码
 | isIphonex.js                  | 判断iphonex
 | SaferHTML.js                  | 安全模板
 | cutstr.js                     | 字符串长度截取    |
