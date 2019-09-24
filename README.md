@@ -2,6 +2,7 @@
 
 | function                      | description                             |
 |:----------------------------- |:----------------------------------------|
+| getUrlParam.js                | 获取hash或query的参数
 | isMobileNumber.js             | 判断运营商号码
 | isIphonex.js                  | 判断iphonex
 | SaferHTML.js                  | 安全模板
