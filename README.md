@@ -2,7 +2,7 @@
 
 | function                      | description                             |
 |:----------------------------- |:----------------------------------------|
-| param2url.js                  | json参数转换url拼接
+| params2url.js                  | json参数转换url拼接
 | getUrlParam.js                | 获取hash或query的参数
 | isMobileNumber.js             | 判断运营商号码
 | isIphonex.js                  | 判断iphonex
