@@ -2,6 +2,7 @@
 
 | function                      | description                             |
 |:----------------------------- |:----------------------------------------|
+| locationReplace.js            | url覆盖
 | compareVersion.js             | 比较版本号
 | params2url.js                 | json参数转换url拼接
 | getUrlParam.js                | 获取hash或query的参数
