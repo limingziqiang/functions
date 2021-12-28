@@ -2,6 +2,7 @@
 
 | function                      | description                             |
 |:----------------------------- |:----------------------------------------|
+| currentMonthDays.js            | 获取当前年月的天数
 | locationReplace.js            | url覆盖
 | compareVersion.js             | 比较版本号
 | params2url.js                 | json参数转换url拼接
