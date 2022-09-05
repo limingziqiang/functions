@@ -2,6 +2,7 @@
 
 | function                      | description                             |
 |:----------------------------- |:----------------------------------------|
+| children .js                  | 获取某个元素所有的兄弟元素
 | hasFocus .js                  | 检测某个元素是否聚焦
 | currentMonthDays.js            | 获取当前年月的天数
 | locationReplace.js            | url覆盖
