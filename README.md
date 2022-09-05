@@ -2,6 +2,7 @@
 
 | function                      | description                             |
 |:----------------------------- |:----------------------------------------|
+| hasFocus .js                  | 检测某个元素是否聚焦
 | currentMonthDays.js            | 获取当前年月的天数
 | locationReplace.js            | url覆盖
 | compareVersion.js             | 比较版本号
