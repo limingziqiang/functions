@@ -1,0 +1,67 @@
+如果您有一个数据数组 ['on', 'off']，并且想要通过一个函数，在给定的数据中，通过 'on' 获取 'off'，通过 'off' 获取 'on'，您可以使用以下代码实现：
+
+function getValueByIndex(arr, value) {
+  if (value === 'on') {
+    return 'off';
+  } else if (value === 'off') {
+    return 'on';
+  } else {
+    throw new Error('Invalid value');
+  }
+}
+
+const arr = ['on', 'off'];
+
+console.log(getValueByIndex(arr, 'on')); // 输出: 'off'
+console.log(getValueByIndex(arr, 'off')); // 输出: 'on'
+在上述代码中，我们定义了一个名为 getValueByIndex 的函数，该函数接受一个数组 arr 和一个值 value。根据给定的值，我们使用条件语句来返回对应的结果。如果值为 'on'，则返回 'off'；如果值为 'off'，则返回 'on'。如果传递的值既不是 'on' 也不是 'off'，则抛出一个错误。
+
+然后，我们创建一个名为 arr 的数组，其值为 ['on', 'off']。通过调用 getValueByIndex 函数并传递值 'on' 和 'off'，我们可以得到对应的结果。
+
+希望这个函数满足您的需求。如果您还有其他问题，请随时提问！
+
+
+除了使用条件语句之外，还有其他方法可以实现通过 'on' 获取 'off'，通过 'off' 获取 'on' 的功能。以下是另一种可能的方法：
+
+function getValueByValue(arr, value) {
+  const index = arr.indexOf(value);
+  if (index !== -1) {
+    const newIndex = (index + 1) % arr.length;
+    return arr[newIndex];
+  } else {
+    throw new Error('Invalid value');
+  }
+}
+
+const arr = ['on', 'off'];
+
+console.log(getValueByValue(arr, 'on')); // 输出: 'off'
+console.log(getValueByValue(arr, 'off')); // 输出: 'on'
+在上述代码中，我们定义了一个名为 getValueByValue 的函数，该函数接受一个数组 arr 和一个值 value。我们使用 indexOf 方法来查找给定值在数组中的索引。如果找到了对应的索引，我们使用 (index + 1) % arr.length 来计算下一个索引，确保在数组边界内循环。然后，我们返回下一个索引对应的值。如果传递的值不在数组中，则抛出一个错误。
+
+通过调用 getValueByValue 函数并传递值 'on' 和 'off'，我们可以得到对应的结果。
+
+这种方法利用了数组的索引和取模运算，可以适用于更大的数据集合。希望这个方法对您有帮助！如果您还有其他问题，请随时提问！
+
+除了使用条件语句和数组索引的方法之外，还有另一种方法可以实现通过 'on' 获取 'off'，通过 'off' 获取 'on' 的功能。这种方法是使用对象映射来实现的。以下是一个示例代码：
+
+function getValueByMapping(value) {
+  const mapping = {
+    'on': 'off',
+    'off': 'on'
+  };
+
+  if (mapping.hasOwnProperty(value)) {
+    return mapping[value];
+  } else {
+    throw new Error('Invalid value');
+  }
+}
+
+console.log(getValueByMapping('on')); // 输出: 'off'
+console.log(getValueByMapping('off')); // 输出: 'on'
+在上述代码中，我们定义了一个名为 getValueByMapping 的函数，该函数接受一个值 value。我们创建了一个名为 mapping 的对象，其中包含了 'on' 和 'off' 的映射关系。通过使用 hasOwnProperty 方法检查给定值是否存在于映射对象中，如果存在，则返回对应的值。如果给定的值不在映射对象中，则抛出一个错误。
+
+通过调用 getValueByMapping 函数并传递值 'on' 和 'off'，我们可以得到对应的结果。
+
+这种方法使用对象的键值对来实现映射关系，可以方便地扩展到更多的键值对。希望这个方法对您有帮助！如果您还有其他问题，请随时提问！
