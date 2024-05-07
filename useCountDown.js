@@ -1,8 +1,6 @@
  function useCountDown({ endTime, stepTime, onEnd }) {
 
-  const fnGetTime = () => {
-    return performance.now()
-  }
+  const fnGetTime = () => performance.now()
 
    const beginTime = fnGetTime();
    const endTimeComputed = endTime + beginTime
