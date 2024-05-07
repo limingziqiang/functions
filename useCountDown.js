@@ -1,65 +1,43 @@
- function useCountDown({ leftTime, ms = 1000, onEnd }) {
-  let countdownTimer;
-  let startTimer;
-  let startTime = performance.now();
-  let nextTime = leftTime % ms;
+ function useCountDown({ endTime, stepTime, onEnd }) {
 
-  let count = leftTime;
+   const beginTime = performance.now();
+   const endTimeComputed = endTime + beginTime
 
-  const clearTimer = () => {
-    if (countdownTimer) {
-      clearTimeout(countdownTimer);
-    }
-    if (startTimer) {
-      clearTimeout(startTimer);
-    }
-  };
+   let timer = null
+   let nextTime = stepTime;
 
-  const startCountDown = () => {
-    clearTimer();
-    const currentTime = performance.now();
-    const executionTime = currentTime - startTime;
+   const fnRun = () => {
+     let runTime =  performance.now()
+     timer = setTimeout(()=>{
+       const iUseTime = performance.now() - runTime
 
-    const diffTime =
-      executionTime > nextTime
-        ? executionTime - nextTime
-        : nextTime - executionTime;
+       if(iUseTime > nextTime) {
+         nextTime =  nextTime - (iUseTime - nextTime)
+       } else {
+         nextTime = stepTime;
+       }
 
-    count = count - (Math.floor(executionTime / ms) || 1) * ms - diffTime;
-    if (count <= 0) {
-      count = 0;
-      clearTimer();
-      if (onEnd) {
-        onEnd();
-      }
-      return;
-    }
+       console.log(iUseTime, nextTime)
+       if (endTimeComputed <= beginTime + performance.now()) {
+         onEnd();
+         clearTimeout(timer);
+         timer = null;
+       } else {
+         fnRun();
+       }
 
-    nextTime =
-      executionTime > nextTime ? ms - diffTime : ms + diffTime;
+     }, nextTime)
+   }
 
-    startTime = performance.now();
-
-    countdownTimer = setTimeout(() => {
-      startCountDown();
-      console.log(count)
-    }, nextTime);
-  };
-
-  startTimer = setTimeout(startCountDown, nextTime);
-
-  return {
-    count,
-    clearTimer,
-  };
+   fnRun();
 }
 
  const countdownOptions = {
-   leftTime: 60 * 1000, // 60 seconds
-   ms: 1000, // 1 second
+   endTime: 10 * 1000, // 60 seconds
+   stepTime: 1000, // 1 second
    onEnd: () => {
      console.log('Countdown finished!');
    },
  };
 
-const { clearTimer } = useCountDown(countdownOptions);
+useCountDown(countdownOptions);
